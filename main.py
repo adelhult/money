@@ -208,7 +208,3 @@ def add_repayment():
                             "description": data["comments"]})
 
     return redirect(url_for('home'))
-
-@app.route('/logo/<path:path>')
-def logo(path):
-    return send_from_directory('logo', path)
