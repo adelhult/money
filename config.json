@@ -1,0 +1,7 @@
+{
+    "person_a": "Alan",
+    "person_b": "Alonzo",
+    "currency_long": "kronor",
+    "currency_short": "kr",
+    "database_name": "transactions"
+}

@@ -1,0 +1,20 @@
+<section class="allTransactions">
+    <h2>Latest transactions</h2>
+    {{'' if transactions|length > 0 else 'No transaction history found'}}
+    {% for t in transactions %}
+        <div class="discretCard">
+            <span class="smallText {{'negative' if t['amount'] < 0 else 'postive'}}">{{t.amount|abs}} {{config.currency_short}}</span>
+            {% if t.delta_a != 0 %}
+                <span class="inDebt">{{config.person_a}} {{'has repayed' if t.delta_a > 0 else 'ows'}} {{t.delta_a|abs}} {{config.currency_short}}</span>
+            {% endif %}
+            {% if t.delta_b != 0 %}
+                <span class="inDebt">{{config.person_b}} {{'has repayed' if t.delta_b > 0 else 'ows'}} {{t.delta_b|abs}} {{config.currency_short}}</span>
+            {% endif %}
+
+            <p class="comment">
+                {{t.comments}}
+            </p>
+            <span class="date">{{t.date}}</span>
+        </div>
+    {% endfor %}
+</section>

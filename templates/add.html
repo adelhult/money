@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    <header>
+        <a href="{{url_for('home')}}">
+            <div class="logo">
+                money
+            </div>
+        </a>
+    </header>
+    <section class="tabs">
+        <button id="expenseButton" class="minor" onclick="switchTab('expense')">
+            Expense
+        </button>
+        <button class="minor" id="repaymentButton" onclick="switchTab('repayment')">
+            Repayment   
+        </button>
+    </section>
+
+    <section id="expense">
+        <form action="{{ url_for('add_expense') }}" method="post">
+            <input  name="amount"
+                    type="number"
+                    class="mainInput"
+                    placeholder="Amount"
+                    min="0"
+                    autofocus
+                    required>
+            
+            <span class="inputExplainer">Who is in debt?</span>
+            <div class="radioButtons">
+                <input onClick="handleRadio()" type="radio" id="personA"
+                name="debt" value="personA" required>
+                <label onClick="handleRadio()" for="personA">{{config.person_a}} ows half the amount</label>
+            
+                <input onClick="handleRadio()" type="radio" id="personB"
+                name="debt" value="personB" required>
+                <label onClick="handleRadio()" for="personB">{{config.person_b}} ows half the amount</label>
+            
+                <input onClick="handleRadio()" type="radio" id="specify"
+                name="debt" value="specify" required>
+                <label onClick="handleRadio()" for="specify">Specify...</label>
+            </div>
+
+            <div id="specifyOptions">
+                <span>{{config.person_a}} ows:</span>
+                <input type="number" name="specifiedPersonA">
+                <span>{{config.person_b}} ows:</span>
+                <input type="number" name="specifiedPersonB">
+            </div>
+
+            <span class="inputExplainer">Date</span>
+             <input id="datePicker1" type="date" name="date" required>
+                    
+            <span class="inputExplainer">Comments</span>
+            <textarea name="comments" placeholder="Anything to add?"></textarea>
+            <input type="submit" value="Log transaction">
+        </form>
+        
+    </section>
+
+    <section id="repayment">
+        <form action="{{ url_for('add_repayment')}}" method="post">
+            <input  name="amount"
+                    type="number"
+                    class="mainInput"
+                    placeholder="Amount"
+                    min="0"
+                    autofocus>
+            <span class="inputExplainer">Who did you repay?</span>
+            <div class="radioButtons">
+                <input type="radio" id="payedPersonA" name="payed" value="payedPersonA">
+                <label for="payedPersonA">{{config.person_a}}</label>
+                    
+                <input type="radio" id="payedPersonB" name="payed" value="payedPersonB">
+                <label for="payedPersonB">{{config.person_b}}</label>
+                
+                <span class="inputExplainer">Date</span>
+                <input id="datePicker2" type="date" name="date">
+
+                <span class="inputExplainer">Comments</span>
+                <textarea name="comments" placeholder="Anything to add?"></textarea>
+
+                <input type="submit" value="Log transaction">
+            </div>         
+                
+        </form>
+    </section>
+
+    <script>
+        let currentTab = "expense";
+
+        document.getElementById('datePicker1').valueAsDate = new Date();
+        document.getElementById('datePicker2').valueAsDate = new Date();
+
+        document.getElementById(currentTab + "Button").classList.add("selected");
+        document.getElementById("repayment").style.display="none";
+
+        function switchTab(tab) {
+            if (currentTab == tab) {return;}
+            document.getElementById(currentTab).style.display = "none";
+            document.getElementById(tab).style.display = "block";
+            
+            document.getElementById(currentTab + "Button").classList.remove("selected");
+            document.getElementById(tab + "Button").classList.add("selected");
+            
+            currentTab = tab;
+
+        }
+
+        const specifyButton = document.getElementById("specify");
+        const specifyOptions = document.getElementById("specifyOptions")
+        specifyOptions.style.display = "none";
+        function handleRadio() {
+            if (specifyButton.checked) {
+                specifyOptions.style.display = "block";
+            } else {
+                specifyOptions.style.display = "none";
+            }
+        }
+    </script>
+{% endblock  %}

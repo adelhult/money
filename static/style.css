@@ -1,0 +1,255 @@
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin:0;
+    padding:0;
+    color: white;
+    background:#0F0E17;
+    padding:1rem;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+.pageWrapper {
+    margin-left:auto;
+    margin-right:auto;
+    max-width:950px;
+    box-sizing: border-box;
+}
+
+section{
+    margin-bottom:2rem;
+}
+
+header {
+    top: -1px;
+    background:#0F0E17;
+    position: sticky;
+    padding-bottom:1rem;
+    padding-top:1rem;
+}
+
+header .logo {
+    z-index:100;
+    font-size:1.5rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+
+header .logo > a {
+    cursor: pointer;
+    user-select: none;
+}
+
+.dashboard {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    box-sizing: border-box;
+    padding:1rem;
+    margin-bottom:1rem;
+    border-radius: 5px;
+    border:solid;
+    border-color: #FF8906;
+    flex-grow:1;
+    min-width: 300px;
+    transition: all 0.3s;
+    border-width:3px;
+}
+
+input[type="number"] {
+    border:none;
+    display: block;
+    background:white;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+}
+
+#specifyOptions {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#specifyOptions span {
+    line-height: 2.2rem;
+}
+
+#specifyOptions input[type="number"] {
+    font-size:1.3rem;
+    padding:0.8rem;
+    width:100%;
+    max-width:30rem;
+}
+
+.mainInput {
+    font-size:3rem;
+    padding:0.8rem;
+    width:100%;
+    max-width:30rem;
+}
+
+/* Hide arrows for number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+button.highlight, input[type="submit"] {
+    font-size:1.5rem;
+    width:100%;
+    padding:0.8rem;
+    background:#FF8906;
+    color:white;
+    border-radius: 5px;
+    border:none;
+    cursor: pointer;
+    max-width:30rem;
+}
+
+button.minor {
+    color:white;
+    background:none;
+    border:none;
+    padding:0;
+    padding-bottom:6px;
+    cursor: pointer;
+    font-size:1.5rem;
+}
+
+button.minor.selected {
+    border-bottom: 3px solid #FF8906;
+}
+
+.tabs > button.minor:first-of-type {
+    margin-right: 2rem;
+}
+
+.inputExplainer {
+    display:block;
+    margin-top:1.3rem;
+    font-weight: bold;
+}
+
+textarea {
+    display: block;
+    background: #171624;
+    box-sizing: border-box;
+    width:100%;
+    max-width:30rem;
+    font-family: inherit;
+    color:white;
+    border:none;
+    font-size:1rem;
+    padding:0.8rem;
+    border-radius: 5px;
+    width:100%;
+    margin-top:1rem;
+    margin-bottom:2rem;
+    height:150px;
+}
+
+input[type="date"] {
+    margin-top:0.6rem;
+    font-size:1.3rem;
+    font-family: inherit;
+    padding:0.8rem;
+}
+
+.smallText {
+    font-size:1.3rem;
+    font-weight: bold;
+    display: block;
+}
+
+.discretCard {
+    z-index:0;
+    background:#171624;
+    max-width:750px;
+    padding:1rem;
+    box-sizing: border-box;
+    margin-bottom:1rem;
+    border-radius: 5px;
+}
+
+.discretCard .inDebt {
+    display: block;
+}
+
+.discretCard .comment {
+    font-style:italic;
+}
+
+.discretCard .date {
+    color:rgba(255, 255, 255, 0.24);
+}
+
+.negative {
+    color:#A4031F;
+}
+
+.postive {
+    color:#285943;
+}
+
+h1 {
+    font-size:3rem;
+    line-height: 0.75rem;
+}
+
+.radioButtons input[type="radio"] {
+    position: absolute;
+    width:0;
+    height:0;
+    opacity:0;
+}
+
+.radioButtons label{
+    cursor: pointer;
+    margin-top:0.6rem;
+    display: block;
+    padding:1rem;
+    border-bottom:solid;
+    border-color: #fdfdfd;
+    border-width: 1px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    max-width:30rem;
+    user-select: none;
+}
+
+.radioButtons label:active {
+    transform:scale(1.03);
+}
+
+.radioButtons label:hover {
+    border-color: #FF8906;
+}
+
+:checked + label {
+    background:#FF8906;
+    border-color: #FF8906;
+    color:#0F0E17;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 800px) {
+    .dashboard {
+        flex-direction: row;
+    }
+
+    .card {
+        margin-right:1rem;
+    }
+
+}

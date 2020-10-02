@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">money</a>
+        </div>
+    </header>
+    {% include 'transactionsFeed.html' with context %}
+
+{% endblock  %}

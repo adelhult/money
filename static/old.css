@@ -1,0 +1,85 @@
+html, body {
+    font-family: 'Inter', sans-serif;
+    margin:0;
+    padding:0;
+    background:#F9F5F1;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+h2 {
+    font-size: 2rem;
+    margin:0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 4rem;
+    margin:0;
+    font-weight: bold;
+}
+
+.pageWrapper {
+    box-sizing: border-box;
+    padding:0.8rem;
+    width:100%;
+    max-width:850px;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.section {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom:1.5rem;
+}
+
+.blockColored {
+    color: #F9F5F1;
+    padding:0.8rem;
+}
+
+.logo {
+    margin-top:1rem;
+}
+
+.whoOwsWho {
+    background:#FFAB44;
+}
+
+.addExpense {
+    background:#154E44;
+}
+
+.totalExpenses {
+    background: #CC4122;
+}
+
+
+.expenseBox {
+    width:100%;
+    background:#ece8e4;
+    padding:0.8rem;
+    margin-top:0.8rem;
+    box-sizing: border-box;
+}
+
+.expenseBox .amount {
+    font-weight: bold;
+}
+
+.expenseBox .date {
+    float:right;
+}
+
+input[type="date"] {
+    font-family: 'Inter', sans-serif;
+    font-size:1.2rem;
+    padding:0.2rem;
+}

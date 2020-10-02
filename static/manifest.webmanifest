@@ -1,0 +1,38 @@
+{
+  "short_name": "Money",
+  "name": "Money",
+  "description": "Money: manage your shared household expenses",
+  "icons": [
+    {
+      "src": "/logo/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0F0E17",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#0F0E17",
+  "shortcuts": [
+    {
+      "name": "Log transaction",
+      "short_name": "Log transaction",
+      "description": "Log a new transaction",
+      "url": "/log-expense",
+      "icons": [{ "src": "/logo/logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "All transactions",
+      "short_name": "All transactions",
+      "description": "View a list of all transactions",
+      "url": "/all-transactions",
+      "icons": [{ "src": "/logo/logo192.png", "sizes": "192x192" }]
+    }
+  ]
+}
