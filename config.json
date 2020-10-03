@@ -3,5 +3,5 @@
     "person_b": "Alonzo",
     "currency_long": "kronor",
     "currency_short": "kr",
-    "database_name": "transactions_database"
+    "database_name": "database_transactions"
 }
