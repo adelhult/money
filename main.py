@@ -248,3 +248,19 @@ def monthly_expenses():
                             config=config,
                             avg_expenses=avg_expenses,
                             expense_cards=expense_cards)
+
+@app.route('/remove/<id>')
+def remove(id):
+    try:
+        clean_id = int(id)
+    except:
+        # todo add error message
+        return redirect(url_for('home')) 
+    
+    conn = connect_to_db(config.database_name)
+    cur = conn.cursor()
+    q = f"DELETE FROM transactions WHERE id = {clean_id}"
+    cur.execute(q)
+    conn.commit()
+
+    return redirect(url_for('home')) 

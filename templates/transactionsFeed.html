@@ -15,6 +15,9 @@
                 {{t.comments}}
             </p>
             <span class="date">{{t.date}}</span>
+            <br>
+            <a style="float:right; opacity:0.7;" href="{{ url_for('remove', id=t.id)}}">Remove entry</a>
+            <br>
         </div>
     {% endfor %}
 </section>
