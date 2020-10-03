@@ -8,4 +8,13 @@ A small, self-hosted web app for managing shared household expenses.
 2. Install [flask](https://pypi.org/project/Flask/)
 3. Set an env var so flask can know where the server is. `export FLASK_ENV="main"`
 4. Run `python3 -m run flask --host 0.0.0.0`
-5. Update the file `config.json`
+5. Create a file named `configuration.json` and insert the following rows:
+```json
+{
+    "person_a": "<INSERT NAME>",
+    "person_b": "<INSERT NAME>",
+    "currency_long": "kronor",
+    "currency_short": "kr",
+    "database_name": "database_transactions"
+}
+``` 

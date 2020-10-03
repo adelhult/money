@@ -134,7 +134,7 @@ def get_transactions(conn, limit=True, n=5):
 
 
 app = Flask(__name__)
-config = Config("config.json")
+config = Config("configuration.json")
 
 
 @app.route('/')
