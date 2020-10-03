@@ -1,6 +1,7 @@
 transactions-test
 transactions_database
 design-files/
+database_transactions.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
