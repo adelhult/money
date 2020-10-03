@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block page %}
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">money</a>
+        </div>
+    </header>
+    <h2>All monthly expenses</h2>
+    <span>Avg. expenses: {{avg_expenses}} {{config.currency_short}}/month</span>
+    <br><br><br>
+    {% for card in expense_cards %}
+        <div class="card">
+            <span class="smallText">Total expenses for {{card.date}}</span>
+            <h1>{{card.expenses}} {{config.currency_short}}</h1>
+        </div>
+    {% endfor %}
+{% endblock %}

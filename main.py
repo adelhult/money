@@ -91,6 +91,19 @@ def total_expenses(conn, year=strftime("%Y"), month=strftime("%m")):
     rows = cur.fetchall()
     return abs(sum(map(lambda r: r[0], rows)))
 
+
+def all_months_with_expenses(conn):
+    """Provides a list of all months containing expenses"""
+    q = """SELECT DISTINCT
+            strftime('%m', date) as Month,
+            strftime('%Y', date) as Year 
+            FROM transactions 
+            WHERE amount < 0
+            ORDER BY date(date) DESC, id DESC"""
+    cur = conn.cursor()
+    cur.execute(q)
+    return (cur.fetchall())
+
 def get_transactions(conn, limit=True, n=5):
     """Get a list of transactions"""
 
@@ -208,3 +221,30 @@ def add_repayment():
                             "description": data["comments"]})
 
     return redirect(url_for('home'))
+
+@app.route('/monthly-expenses')
+def monthly_expenses():
+    conn = connect_to_db(config.database_name)
+    expense_cards = []
+    expenses_each_month = []
+    for i in all_months_with_expenses(conn):
+        month = i[0]
+        year  = i[1]
+
+        date = strptime(f"{year} {month}", "%Y %m") 
+        formated_date = strftime("%b %Y", date)
+
+        expenses = total_expenses(conn, year=year, month=month)
+        expenses_each_month.append(expenses)
+
+        expense_cards.append({
+            "date": formated_date,
+            "expenses": expenses
+        })
+    
+    avg_expenses = sum(expenses_each_month) // len(expenses_each_month) 
+
+    return render_template('monthlyExpenses.html',
+                            config=config,
+                            avg_expenses=avg_expenses,
+                            expense_cards=expense_cards)

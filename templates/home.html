@@ -21,10 +21,12 @@
                 </span>
             <h1>{{currently_in_debt[1]}} {{config.currency_short}}</h1>
         </div>
-        <div class="card">
-            <span class="smallText">Total expenses this month</span>
-            <h1>{{total_expenses}} {{config.currency_short}}</h1>
-        </div>
+        <a class="card" href="{{ url_for('monthly_expenses')}}">
+            <div>
+                <span class="smallText">Total expenses this month</span>
+                <h1>{{total_expenses}} {{config.currency_short}}</h1>
+            </div>
+        </a>
     </section>
 
     {% include 'transactionsFeed.html' with context %}
