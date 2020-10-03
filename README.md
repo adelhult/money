@@ -18,3 +18,10 @@ A small, self-hosted web app for managing shared household expenses.
 }
 ```
 5. Run `python3 -m run flask --host 0.0.0.0`
+
+
+## TODO
+* Clean-up, the code is currently pretty ugly
+* Better UX
+* Improve fault tolerance
+* More data, total number of expenses etc.
