@@ -210,9 +210,9 @@ def add_repayment():
         delta_a = 0
         delta_b = 0
         if data["payed"] == "payedPersonA":
-            delta_a = amount
-        else:
             delta_b = amount
+        else:
+            delta_a = amount
         
     log_repayment(conn, {   "amount": amount,
                             "delta_a": delta_a,
