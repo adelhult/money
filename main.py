@@ -79,7 +79,7 @@ def who_is_in_debt(conn):
     # ...otherwise person b is in debt
     return ('b', abs(a_balance))
 
-def total_expenses(conn, year=strftime("%Y"), month=strftime("%m")):
+def total_expenses(conn, year, month):
     """Returns the total expenses for a given year and month"""
 
     cur = conn.cursor()
@@ -144,7 +144,7 @@ def home():
     return render_template('home.html',
                             config=config,
                             currently_in_debt=who_is_in_debt(conn),
-                            total_expenses=total_expenses(conn),
+                            total_expenses=total_expenses(conn, strftime("%Y"), strftime("%m")),
                             transactions=get_transactions(conn))
 
 
@@ -234,7 +234,7 @@ def monthly_expenses():
         date = strptime(f"{year} {month}", "%Y %m") 
         formated_date = strftime("%b %Y", date)
 
-        expenses = total_expenses(conn, year=year, month=month)
+        expenses = total_expenses(conn, year, month)
         expenses_each_month.append(expenses)
 
         expense_cards.append({
